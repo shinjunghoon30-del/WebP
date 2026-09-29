@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>text-shadow와 box-shadow</title>
+    <style>
+        h1 {
+            color: yellowgreen;
+            text-shadow: 2px 2px 5px gray;
+        }
+        .site-list {
+            display: flex;
+            gap: 10px;
+        }
+        .site-card {
+            border: 1px solid #ccc;
+            padding: 5px;
+            background-color: #fff;
+        }
+        .site-card img {
+            width: 150px;
+            height: 100px;
+            display: block;
+        }
+        .site-card:hover {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Most Visited Pages</h1>
+    <hr>
+    <div class="site-list">
+        <div class="site-card"><img src="card_front.png" alt="Naver"></div>
+        <div class="site-card"><img src="card_back.png" alt="News"></div>
+        <div class="site-card"><img src="landscape.png" alt="Amazon"></div>
+    </div>
+</body>
+</html>
