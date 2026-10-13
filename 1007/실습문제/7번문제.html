@@ -1,0 +1,20 @@
+<script>
+    let n = prompt("숫자 입력");
+    let original = n;
+    let last = n % 10; 
+    let first;
+    
+    while(n > 0) {
+        first = n % 10;
+        n = Math.floor(n / 10);
+    }
+    
+    document.write("<h3>큰 자리수와 낮은자리수 같은지 비교</h3>");
+    document.write("<hr>");
+    
+    if(first == last) {
+        document.write(original + ": 같음");
+    } else {
+        document.write(original + ": 다름");
+    }
+</script>

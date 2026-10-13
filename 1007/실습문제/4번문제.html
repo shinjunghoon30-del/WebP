@@ -1,0 +1,23 @@
+<script>
+    let day = prompt("월화수목금토일 중에서 입력하세요");
+    let result;
+    
+    switch(day) {
+        case "월":
+        case "화":
+        case "수":
+        case "목":
+            result = "출근";
+            break;
+        case "금":
+        case "토":
+        case "일":
+            result = "휴일";
+            break;
+        default:
+            result = "잘못 입력하셨습니다.";
+    }
+    document.write("<h3>월화수목금토일</h3>");
+    document.write("<hr>");
+    document.write(day + "는 " + result);
+</script>

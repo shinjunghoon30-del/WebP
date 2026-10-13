@@ -1,0 +1,22 @@
+<script>
+    document.write("<h3>document.write() 로 표만들기</h3>");
+    document.write("<table border='1'>");
+
+    
+    document.write("<tr>");
+    document.write("<td>n</td>");
+    for(let i=0; i<=9; i++) {
+        document.write("<td>" + i + "</td>");
+    }
+    document.write("</tr>");
+
+    
+    document.write("<tr>");
+    document.write("<td>n<sup>2</sup></td>");
+    for(let i=0; i<=9; i++) {
+        document.write("<td>" + (i * i) + "</td>");
+    }
+    document.write("</tr>");
+
+    document.write("</table>");
+</script>
