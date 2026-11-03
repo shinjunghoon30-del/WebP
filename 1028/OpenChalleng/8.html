@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갬블링 게임</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            margin: 20px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        #game-board {
+            display: inline-block;
+            background-color: #f1eaf5;
+            border: 1px solid #b8a0c4;
+            padding: 15px 25px;
+            margin-bottom: 15px;
+        }
+
+        .number-slot {
+            display: inline-block;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 38px;
+            font-weight: bold;
+            font-style: italic;
+            color: #1a0dab;
+            width: 35px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            margin: 0 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .number-slot:hover {
+            opacity: 0.7;
+        }
+
+        #result {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #8a2be2;
+            margin-top: 10px;
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+        }
+
+        #result:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>갬블링 게임</h3>
+    <p>각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</p>
+
+    <div id="game-board">
+        <span class="number-slot" id="first" onclick="changeNumber(0)">0</span>
+        <span class="number-slot" id="second" onclick="changeNumber(1)">0</span>
+        <span class="number-slot" id="third" onclick="changeNumber(2)">0</span>
+    </div>
+
+    <br>
+
+    <div id="result" onclick="resetGame()"></div>
+
+    <script>
+        let numbers = [0, 0, 0];
+        let clicked = [false, false, false];
+        let gameOver = false;
+
+        function changeNumber(index) {
+            if (gameOver) {
+                return;
+            }
+
+            let randomNum = Math.floor(Math.random() * 3);
+            numbers[index] = randomNum;
+
+            const slots = document.getElementsByClassName("number-slot");
+            slots[index].innerText = randomNum;
+
+            clicked[index] = true;
+
+            if (clicked[0] && clicked[1] && clicked[2]) {
+                gameOver = true;
+                checkResult();
+            }
+        }
+
+        function checkResult() {
+            const resultDiv = document.getElementById("result");
+
+            if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
+                resultDiv.innerText = "Success(click here to do again)";
+            } else {
+                resultDiv.innerText = "fail(click here to do again)";
+            }
+        }
+
+        function resetGame() {
+            if (!gameOver) {
+                return;
+            }
+
+            numbers = [0, 0, 0];
+            clicked = [false, false, false];
+            gameOver = false;
+
+            const slots = document.getElementsByClassName("number-slot");
+            for (let i = 0; i < slots.length; i++) {
+                slots[i].innerText = "0";
+            }
+
+            document.getElementById("result").innerText = "";
+        }
+    </script>
+</body>
+</html>
