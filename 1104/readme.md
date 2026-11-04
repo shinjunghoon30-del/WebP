@@ -1,4 +1,4 @@
-# 11월 수업 내용
+# 11월 4일 수업 내용
 
 ## 1. 이벤트 개요 및 리스너 작성 방법
 ### 이벤트(Event)
@@ -29,3 +29,4 @@
 ### 리스너 등록 및 제어
 - addEventListener(eventName, listener, useCapture)에서 3번째 인자가 true이면 캡처 리스너, false(디폴트)이면 버블 리스너로 등록
 - 이벤트 객체의 event.stopPropagation()을 호출하면 이벤트 흐름을 중단
+
