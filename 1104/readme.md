@@ -10,3 +10,22 @@
 - DOM 객체의 이벤트 리스너 프로퍼티 이용: 자바스크립트에서 DOM 객체를 가져와 프로퍼티에 함수를 등록 (예: p.onmouseover = over;)
 - addEventListener() 메소드 이용: 표준적인 등록 방법으로, 캡처와 버블 단계를 세밀하게 제어
 - 익명 함수 이용: 이름 없는 함수를 활용하여 코드가 짧거나 한 곳에서만 쓰이는 경우 유용하게 작성
+
+## 2. 이벤트 객체와 디폴트 행동
+### 이벤트 객체(Event Object)
+- 발생한 이벤트에 관련된 다양한 정보(마우스 좌표, 키 코드 등)를 담고 있는 객체로, 이벤트 리스너의 첫 번째 매개변수(e)로 전달
+- 공요 멤버: type(이벤트 종류), target(이벤트를 발생시킨 객체), currentTarget(현재 리스너를 실행 중인 객체), preventDefault()(디폴트 행동 취소 메소드) 등
+
+### 이벤트의 디폴트 행동 취소
+- 특정 이벤트가 가진 기본 동작(예: <a> 링크 클릭 시 페이지 이동, submit 버튼 클릭 시 폼 전송)을 막는 방법
+- 이벤트 리스너에서 false를 리턴하거나 이벤트 객체의 event.preventDefault() 메소드를 호출하여 취소
+
+## 3. 이벤트 흐름 (Event Flow)
+### 이벤트 흐름의 개념
+- 이벤트가 발생하면 window 객체에서 출발하여 DOM 트리를 따라 타겟 객체에 도달(캡처 단계)한 뒤, 다시 반대 방향으로 흘러 window 객체에 도달하고 소멸하는 과정
+### 단계별 특징
+- 캡처 단계 (Capturing Phase): window에서 중간 DOM 객체를 거쳐 타겟 객체로 전달되는 과정
+- 버블 단계 (Bubbling Phase): 타겟에서 중간 DOM 객체를 거쳐 window 객체로 전달되는 과정
+### 리스너 등록 및 제어
+- addEventListener(eventName, listener, useCapture)에서 3번째 인자가 true이면 캡처 리스너, false(디폴트)이면 버블 리스너로 등록
+- 이벤트 객체의 event.stopPropagation()을 호출하면 이벤트 흐름을 중단
