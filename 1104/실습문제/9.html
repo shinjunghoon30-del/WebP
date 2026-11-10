@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>onmouseover와 onmouseout</title>
+    <style>
+        #deli {
+            position: absolute;
+            border: 1px solid green;
+            background-color: aliceblue;
+            visibility: hidden;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+    </style>
+    <script>
+        let comments = [
+            "자전거 타고 경기도, 충청도, 전라도, 경상도 다 돌아보기",
+            "빨간자전거를 타고 서울, 대구, 부산 찍고, 목포, 제주도까지 달려봅시다.",
+            "수영, 사이클, 마라톤까지 정복하기",
+            "자바스크립트 마스터하기"
+        ];
+
+        window.onload = function() {
+            let liArray = document.getElementsByTagName("li");
+            let deli = document.getElementById("deli");
+
+            for (let i = 0; i < liArray.length; i++) {
+                liArray[i].onmouseover = function(e) {
+                    deli.innerHTML = comments[i];
+                    deli.style.left = e.clientX + 10 + "px";
+                    deli.style.top = e.clientY + 10 + "px";
+                    deli.style.visibility = "visible";
+                };
+                liArray[i].onmouseout = function() {
+                    deli.style.visibility = "hidden";
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+    <h3>아이템에 마우스를 올리면 설명 출력</h3>
+    <hr>
+    <p>여름 방학 때 하고 싶은 것들</p>
+    <ul>
+        <li>자전거로 대한민국 일주</li>
+        <li>책 100권 읽기</li>
+        <li>철인 3종 경기 준비</li>
+        <li>자바스크립트 정복</li>
+    </ul>
+    <div id="deli"></div>
+</body>
+</html>
