@@ -19,7 +19,17 @@ _ window: 브라우저 윈도우 모양 제어, 새 윈도우 열기/닫기
 ### 타이머 기능
 - setTimeout() / clearTimeout(): 일정 시간(msec) 후 코드를 1회 실행 또는 해제.
 - setInterval() / clearInterval(): 일정 시간(msec) 주기로 코드를 반복 실행 또는 해제.
-/
+### 크기 조절, 스크롤, 프린트 및 이벤트
 - 위치 및 크기 조절: moveBy(), moveTo(), resizeBy(), resizeTo()를 통해 창의 위치와 크기를 동적으로 변경할 수 있음
 - 웹 페이지 스크롤: scrollBy(x, y)는 상대적 거리만큼, scrollTo(x, y)는 지정된 좌표 위치로 스크롤
 - 프린트 및 이벤트: window.print()로 인쇄 다이얼로그를 호출하며, 인쇄 전후로 onbeforeprint, onafterprint 이벤트를 활용해 특정 요소(예: 회사 로고)를 제어할 수 있음
+
+## 3. 기타 주요 BOM 객체
+### location 객체
+- 현재 윈도우에 로드된 웹 페이지의 URL 정보를 다루며, 새 페이지로 이동할 때 window.location = "주소" 또는 window.location.href, assign(), replace() 등을 사용
+### navigator 객체
+- 브라우저의 이름(appName), 버전(appVersion), 사용자 에이전트(userAgent), 플랫폼, 온라인 상태(onLine), 쿠키 허용 여부(cookieEnabled) 등 브라우저 환경 정보를 제공
+### screen 객체
+- 모니터 화면의 해상도(width, height) 및 작업 표시줄을 제외한 브라우저 출력 가능 영역(availWidth, availHeight), 색상 깊이(colorDepth) 등의 정보를 제공
+### history 객체
+- 사용자가 방문한 웹 페이지 리스트를 관리하며, back(), forward(), go(n) 메서드를 통해 이전 또는 다음 페이지로 이동할 수 있
